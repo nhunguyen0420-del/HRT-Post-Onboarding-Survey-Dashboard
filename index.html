@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HRT × Digital MKT — Pre-Meeting Brief</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --red: #F6042E;
+    --blue: #1A31B7;
+    --black: #231F20;
+    --white: #ffffff;
+    --gray-light: #F5F5F5;
+    --gray-mid: #E0E0E0;
+    --gray-text: #666;
+    --red-light: #FFF0F2;
+    --blue-light: #EEF1FF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #FAFAFA;
+    color: var(--black);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--red);
+    color: white;
+    padding: 56px 64px 52px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -80px; top: -80px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    border: 60px solid rgba(255,255,255,0.08);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    right: 80px; bottom: -120px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    border: 40px solid rgba(255,255,255,0.06);
+  }
+  .logo-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .logo-vus {
+    background: white;
+    color: var(--red);
+    font-weight: 900;
+    font-size: 20px;
+    padding: 4px 12px;
+    letter-spacing: -0.5px;
+    border-radius: 2px;
+  }
+  .logo-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .hero-sub {
+    font-size: 15px;
+    opacity: 0.82;
+    max-width: 580px;
+    line-height: 1.7;
+    position: relative;
+  }
+  .hero-meta {
+    margin-top: 32px;
+    display: flex;
+    gap: 32px;
+    font-size: 12px;
+    opacity: 0.7;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    position: relative;
+  }
+  .hero-meta span::before {
+    content: '— ';
+  }
+
+  /* ── NAV TOC ── */
+  .toc {
+    background: var(--blue);
+    color: white;
+    padding: 20px 64px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+  .toc a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 20px 6px 0;
+    white-space: nowrap;
+    transition: color 0.15s;
+    border-right: 1px solid rgba(255,255,255,0.15);
+    margin-right: 20px;
+  }
+  .toc a:last-child { border-right: none; margin-right: 0; }
+  .toc a:hover { color: white; }
+
+  /* ── WRAPPER ── */
+  .page { max-width: 1100px; margin: 0 auto; padding: 0 64px 80px; }
+
+  /* ── SECTION ── */
+  .section {
+    padding-top: 64px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+  .section-num {
+    background: var(--red);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 3px 10px;
+    border-radius: 2px;
+  }
+  .section-num.blue { background: var(--blue); }
+  .section-num.black { background: var(--black); }
+  .section-title {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: var(--gray-mid);
+    margin: 0 0 32px;
+  }
+
+  /* ── CONTEXT TABLE ── */
+  .context-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  .context-table th {
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: white;
+    border-right: 2px solid rgba(255,255,255,0.15);
+  }
+  .context-table th:first-child { background: var(--black); border-radius: 4px 0 0 0; }
+  .context-table th:nth-child(2) { background: var(--blue); }
+  .context-table th:nth-child(3) { background: #1B7A5E; }
+  .context-table th:nth-child(4) { background: #7B3FA6; border-radius: 0 4px 0 0; border-right: none; }
+  .context-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--gray-mid);
+    border-right: 1px solid var(--gray-mid);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .context-table td:last-child { border-right: none; }
+  .context-table tr:last-child td { border-bottom: none; }
+  .context-table tr:nth-child(even) td { background: var(--gray-light); }
+  .context-table td:first-child {
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--blue);
+    letter-spacing: 0.3px;
+    background: #F0F3FF;
+  }
+  .warn { color: var(--red); font-weight: 600; }
+  .tag-pill {
+    display: inline-block;
+    background: var(--blue-light);
+    color: var(--blue);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 1px 7px;
+    border-radius: 3px;
+    margin: 1px 2px;
+  }
+  .tag-pill.red { background: var(--red-light); color: var(--red); }
+
+  /* ── WORKFLOW ── */
+  .workflow-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--gray-mid);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .wf-step {
+    padding: 20px 18px;
+    border-right: 1px solid var(--gray-mid);
+    position: relative;
+  }
+  .wf-step:last-child { border-right: none; }
+  .wf-num {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+  .wf-title {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .wf-desc {
+    font-size: 12px;
+    color: var(--gray-text);
+    line-height: 1.6;
+  }
+  .wf-arrow {
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    background: var(--red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 10px;
+    z-index: 2;
+  }
+  .wf-step:last-child .wf-arrow { display: none; }
+  .wf-row2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--gray-mid);
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    overflow: hidden;
+    direction: rtl;
+  }
+  .wf-row2 .wf-step {
+    direction: ltr;
+    border-right: none;
+    border-left: 1px solid var(--gray-mid);
+    background: #FAFAFA;
+  }
+  .wf-row2 .wf-step:first-child { border-left: none; }
+  .wf-role-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 24px;
+    font-size: 13.5px;
+  }
+  .wf-role-table th {
+    background: var(--black);
+    color: white;
+    text-align: left;
+    padding: 10px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .wf-role-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--gray-mid);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .wf-role-table tr:last-child td { border-bottom: none; }
+  .wf-role-table tr:nth-child(even) td { background: var(--gray-light); }
+  .wf-role-table td:first-child { font-weight: 700; width: 160px; }
+
+  /* ── DATA INFRA ── */
+  .data-flow {
+    display: grid;
+    grid-template-columns: 1fr 40px 1fr 40px 1fr;
+    gap: 0;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+  .data-box {
+    background: white;
+    border: 1.5px solid var(--gray-mid);
+    border-radius: 6px;
+    padding: 16px 18px;
+  }
+  .data-box-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    margin-bottom: 10px;
+  }
+  .data-item {
+    font-size: 13px;
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--gray-light);
+  }
+  .data-item:last-child { border-bottom: none; }
+  .data-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .dot-red { background: var(--red); }
+  .dot-blue { background: var(--blue); }
+  .dot-green { background: #1B7A5E; }
+  .data-arrow {
+    text-align: center;
+    color: var(--gray-text);
+    font-size: 20px;
+  }
+  .manual-badge {
+    display: inline-block;
+    background: #FFF3CD;
+    border: 1px solid #F0C040;
+    color: #856404;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 1px 7px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    margin-left: 6px;
+  }
+
+  /* ── PAIN POINTS ── */
+  .pain-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .pain-card {
+    background: white;
+    border: 1.5px solid var(--gray-mid);
+    border-radius: 6px;
+    padding: 22px 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .pain-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--red);
+  }
+  .pain-num {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--red);
+    margin-bottom: 6px;
+  }
+  .pain-title {
+    font-size: 15px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: -0.3px;
+  }
+  .pain-desc {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.7;
+  }
+  .pain-impact {
+    margin-top: 12px;
+    background: var(--red-light);
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--red);
+  }
+
+  /* ── QUESTIONS ── */
+  .q-section {
+    margin-bottom: 32px;
+  }
+  .q-category {
+    display: inline-block;
+    background: var(--blue);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+  .q-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .q-item {
+    background: white;
+    border: 1.5px solid var(--gray-mid);
+    border-radius: 5px;
+    padding: 14px 18px 14px 52px;
+    font-size: 13.5px;
+    line-height: 1.65;
+    position: relative;
+  }
+  .q-item::before {
+    content: attr(data-q);
+    position: absolute;
+    left: 16px;
+    top: 14px;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--blue);
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.5px;
+  }
+  .q-item strong { color: var(--black); font-weight: 700; }
+  .q-item em { color: var(--red); font-style: normal; font-weight: 600; }
+
+  /* ── CASE STUDY ── */
+  .case-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .case-table th {
+    background: var(--black);
+    color: white;
+    text-align: right;
+    padding: 10px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .case-table th:first-child { text-align: left; }
+  .case-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--gray-mid);
+    text-align: right;
+  }
+  .case-table td:first-child { text-align: left; font-weight: 600; }
+  .case-table tr:nth-child(even) td { background: var(--gray-light); }
+  .case-table .highlight td { background: #FFF0F2; color: var(--red); font-weight: 700; }
+  .case-table .good td { background: #EFFFEB; color: #1A7A3A; font-weight: 700; }
+  .finding-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 20px;
+  }
+  .finding {
+    padding: 18px;
+    border-radius: 5px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .finding.warn { background: #FFF0F2; border: 1.5px solid #FFBFC8; }
+  .finding.good { background: #EFFFEB; border: 1.5px solid #9EE8A2; }
+  .finding-title { font-size: 12px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 8px; }
+  .finding.warn .finding-title { color: var(--red); }
+  .finding.good .finding-title { color: #1A7A3A; }
+
+  /* ── DASHBOARD EXPECTATION ── */
+  .dash-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .dash-card {
+    border: 1.5px solid var(--gray-mid);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .dash-card-head {
+    background: var(--blue);
+    color: white;
+    padding: 10px 14px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .dash-card-body {
+    padding: 12px 14px;
+    font-size: 12.5px;
+    line-height: 1.7;
+    background: white;
+  }
+  .dash-funnel {
+    background: white;
+    border: 1.5px solid var(--gray-mid);
+    border-radius: 6px;
+    padding: 20px 24px;
+  }
+  .funnel-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    margin-bottom: 14px;
+  }
+  .funnel-steps {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .funnel-step {
+    background: var(--blue-light);
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .funnel-step.cost { background: var(--red-light); color: var(--red); }
+  .funnel-sep { color: var(--gray-text); font-size: 14px; padding: 0 2px; }
+
+  /* ── FREQUENCY TABLE ── */
+  .freq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .freq-card {
+    background: white;
+    border: 1.5px solid var(--gray-mid);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .freq-head {
+    background: var(--black);
+    color: white;
+    padding: 10px 14px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .freq-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+  }
+  .freq-table th {
+    padding: 8px 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    border-bottom: 1px solid var(--gray-mid);
+    text-align: left;
+  }
+  .freq-table th:not(:first-child) { text-align: right; }
+  .freq-table td {
+    padding: 7px 12px;
+    border-bottom: 1px solid var(--gray-mid);
+    text-align: left;
+  }
+  .freq-table td:not(:first-child) { text-align: right; }
+  .freq-table tr:last-child td { border-bottom: none; }
+  .freq-table tr.winner td { background: #E0F7FF; font-weight: 700; color: #005A8B; }
+  .freq-table tr.warn-row td { background: #FFF0F2; color: var(--red); }
+
+  /* ── MEASUREMENT ── */
+  .metrics-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    margin: 20px 0;
+  }
+  .metric-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    align-items: stretch;
+    gap: 0;
+  }
+  .metric-label {
+    background: var(--blue);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+  }
+  .metric-label.l2 { background: #1952D6; }
+  .metric-label.l3 { background: #1B7A5E; }
+  .metric-label.l4 { background: #7B3FA6; }
+  .metric-kpis {
+    background: white;
+    border-bottom: 1px solid var(--gray-mid);
+    padding: 10px 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+  .kpi-chip {
+    background: var(--gray-light);
+    border: 1px solid var(--gray-mid);
+    font-size: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    color: var(--black);
+  }
+  .q-note {
+    background: var(--red-light);
+    border: 1px solid #FFBFC8;
+    border-radius: 5px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--red);
+    font-weight: 600;
+    margin-top: 12px;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--black);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+  .footer strong { color: white; }
+
+  /* ── UTILITY ── */
+  .callout {
+    background: var(--blue-light);
+    border-left: 4px solid var(--blue);
+    border-radius: 0 4px 4px 0;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    line-height: 1.7;
+    margin: 20px 0;
+  }
+  .callout.red {
+    background: var(--red-light);
+    border-color: var(--red);
+  }
+  ul.check {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+  ul.check li::before {
+    content: '→ ';
+    color: var(--red);
+    font-weight: 700;
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 12px;
+  }
+  .box {
+    background: white;
+    border: 1.5px solid var(--gray-mid);
+    border-radius: 5px;
+    padding: 18px;
+  }
+  .box-title {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    margin-bottom: 10px;
+  }
+  .mono { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--blue); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="logo-bar">
+    <div class="logo-vus">VUS</div>
+    <div class="logo-label">The English Center</div>
+  </div>
+  <div class="hero-tag">Pre-Meeting Brief · Confidential</div>
+  <h1>HRT × Digital MKT<br>Alignment Brief</h1>
+  <p class="hero-sub">Tài liệu này tổng hợp toàn bộ context vận hành của HRT — từ workflow tháng, data infrastructure, đến các pain points cụ thể — để team Digital MKT hiểu đủ sâu trước buổi làm việc và chuẩn bị tư vấn có trọng tâm.</p>
+  <div class="hero-meta">
+    <span>Meeting: 22/06/2026</span>
+    <span>Prepared by: HRT Team</span>
+    <span>Audience: Digital MKT</span>
+  </div>
+</div>
+
+<!-- TOC -->
+<nav class="toc">
+  <a href="#context">01 · Context</a>
+  <a href="#workflow">02 · Monthly Workflow</a>
+  <a href="#data">03 · Data Infrastructure</a>
+  <a href="#casestudy">04 · Case Study</a>
+  <a href="#challenges">05 · Challenges</a>
+  <a href="#questions">06 · Key Questions</a>
+  <a href="#dashboard">07 · Dashboard Expectation</a>
+</nav>
+
+<div class="page">
+
+  <!-- SECTION 01 CONTEXT -->
+  <div class="section" id="context">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Context — 3 Recruitment Segments, 3 Khác Biệt Hoàn Toàn</h2>
+    </div>
+    <div class="divider"></div>
+    <p style="font-size:13.5px; color:#444; margin-bottom:20px; line-height:1.7;">HRT chạy ads đồng thời cho 3 nhóm ứng viên với candidate persona, geo targeting và budget logic hoàn toàn khác nhau. Digital MKT cần hiểu rõ sự khác biệt này để đánh giá đúng performance.</p>
+    <div style="overflow-x:auto;">
+    <table class="context-table">
+      <tr>
+        <th>Dimension</th>
+        <th>EX · GVNN<br><span style="font-weight:400;opacity:0.8">Giáo viên nước ngoài</span></th>
+        <th>VN · GVVN<br><span style="font-weight:400;opacity:0.8">Giáo viên Việt Nam</span></th>
+        <th>TA · Trợ giảng<br><span style="font-weight:400;opacity:0.8">Sinh viên / Fresh grad</span></th>
+      </tr>
+      <tr>
+        <td>Candidate Profile</td>
+        <td>Đa quốc tịch. Cần work permit + visa support. Hồ sơ phức tạp theo từng quốc tịch.</td>
+        <td>Có bằng Sư phạm / chứng chỉ dạy học. Apply theo location ưu tiên.</td>
+        <td>Sinh viên hoặc fresh grad. Cần lịch ca linh hoạt, part-time. Ưu tiên gần nơi học/sống.</td>
+      </tr>
+      <tr>
+        <td>Geo Targeting</td>
+        <td><span class="warn">⚠ Toàn cầu</span>: Vietnam, Asia, US, UK, CA, AU, IE, NZ.<br>Target theo nơi ứng viên đang ở — <em>không phải</em> working location.</td>
+        <td>Theo tỉnh/thành có recruitment order hiện tại. VN team quyết định.</td>
+        <td>Theo campus / khu vực trường ĐH. TA team quyết định.</td>
+      </tr>
+      <tr>
+        <td>Budget Split</td>
+        <td><strong>Google 60%</strong> (10–30M/tháng)<br><strong>Meta 40%</strong> (8–15M/tháng)<br><span class="mono">Google mạnh hơn vì overseas search intent</span></td>
+        <td><strong>Meta 70–80%</strong> (8–15M/tháng)<br><strong>Google 20–30%</strong> (3–5M/tháng)<br><span class="mono">Meta mạnh hơn với tệp local VN</span></td>
+        <td><strong>Meta 70–80%</strong><br><strong>Google 20–30%</strong><br><span class="mono">Meta/IG Reels hiệu quả với tệp trẻ</span></td>
+      </tr>
+      <tr>
+        <td>Campaign Objective</td>
+        <td>Awareness + Lead. Expected CVs/QCVs/Interviews xác định theo recruitment order và conversion rate lịch sử.</td>
+        <td>Awareness / Lead theo từng location. Một số location chỉ cần Awareness là đủ ra lead.</td>
+        <td>Lead volume cao. Cần nhiều CV để đủ QCV vì CR CV→QCV của TA thấp hơn EX/VN.</td>
+      </tr>
+      <tr>
+        <td>Creative Direction</td>
+        <td>Work permit policy, visa support, package theo quốc tịch. Multi-language content. Message rất đặc thù — EB chỉ hỗ trợ diễn đạt.</td>
+        <td>USP theo location cụ thể, quyền lợi, lộ trình thăng tiến theo VUS policy.</td>
+        <td>Tone trẻ, dễ hiểu. Lịch ca, địa điểm, thu nhập part-time. Phù hợp Meta/IG Reels.</td>
+      </tr>
+    </table>
+    </div>
+  </div>
+
+  <!-- SECTION 02 WORKFLOW -->
+  <div class="section" id="workflow">
+    <div class="section-header">
+      <span class="section-num blue">02</span>
+      <h2 class="section-title">Monthly Workflow — Quy Trình Vận Hành Tháng</h2>
+    </div>
+    <div class="divider"></div>
+
+    <!-- Flow steps -->
+    <div class="workflow-steps">
+      <div class="wf-step">
+        <div class="wf-num">STEP 01</div>
+        <div class="wf-title">Recruitment Teams Plan Ads</div>
+        <div class="wf-desc">Xác định Objective, Budget, Location, Ad Creative Direction theo hiring order tháng.</div>
+        <div class="wf-arrow">→</div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">STEP 02</div>
+        <div class="wf-title">EB Reviews & Adjusts</div>
+        <div class="wf-desc">Review plan, check creative fatigue, điều chỉnh budget split nếu cần, generate thêm creative variants.</div>
+        <div class="wf-arrow">→</div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">STEP 03</div>
+        <div class="wf-title">Digital Sets Ads</div>
+        <div class="wf-desc">Nhận brief đã finalized từ EB, setup + launch campaign trên Meta/Google Ads Manager.</div>
+        <div class="wf-arrow">→</div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">STEP 04</div>
+        <div class="wf-title">Ads Live</div>
+        <div class="wf-desc">Campaigns đang chạy. HRT theo dõi budget vs spend rate.</div>
+      </div>
+    </div>
+    <div class="wf-row2">
+      <div class="wf-step">
+        <div class="wf-num">STEP 08</div>
+        <div class="wf-title">Next Month Planning</div>
+        <div class="wf-desc">EB đề xuất action plan: budget re-allocation, creative refresh, targeting expansion.</div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">STEP 07</div>
+        <div class="wf-title">EOM Performance Review</div>
+        <div class="wf-desc">EB xem dashboard/report, phân tích toàn bộ funnel từ impression đến hire.</div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">STEP 06</div>
+        <div class="wf-title">Manual Data Collection</div>
+        <div class="wf-desc">Export Ads Manager ×2 + Cpanel export + mapping + import vào Dashboard. <span class="manual-badge">Manual</span></div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">STEP 05</div>
+        <div class="wf-title">Mid-Month Check</div>
+        <div class="wf-desc">EB check ads performance giữa tháng. Tắt non-winning ad sets, đề xuất điều chỉnh nếu cần.</div>
+      </div>
+    </div>
+
+    <!-- Role table -->
+    <table class="wf-role-table" style="margin-top:24px;">
+      <tr>
+        <th>Stakeholder</th>
+        <th>Vai trò trong workflow</th>
+      </tr>
+      <tr>
+        <td>Recruitment Teams</td>
+        <td>Xác định hiring needs, location priority, budget đề xuất, ad content direction (USP, JD, message).</td>
+      </tr>
+      <tr>
+        <td>EB Team</td>
+        <td>Đầu mối tổng hợp request, review order, phối hợp với Digital. Thiết kế thêm ad creative để giảm creative fatigue. Collect data + phân tích performance + đề xuất action.</td>
+      </tr>
+      <tr>
+        <td>Digital MKT</td>
+        <td>Setup, launch, optimize ads. Cung cấp chi phí thực tế. Hiện tại chưa có SLA rõ ràng cho mid-month flagging.</td>
+      </tr>
+    </table>
+
+    <div class="callout" style="margin-top:20px;">
+      <strong>Tại sao Recruitment Teams tự plan thay vì để Digital plan?</strong> Vì mỗi team nắm budget riêng, cost/new hire của từng source, và candidate persona cụ thể — Digital không có đủ context để plan đúng. <strong>Tại sao EB phải review lại?</strong> Vì recruitment teams không có nghiệp vụ ads đủ để tránh creative fatigue, chọn đúng objective, hoặc phân bổ budget theo data.
+    </div>
+  </div>
+
+  <!-- SECTION 03 DATA -->
+  <div class="section" id="data">
+    <div class="section-header">
+      <span class="section-num black">03</span>
+      <h2 class="section-title">Data Infrastructure — Hiện Trạng & Vấn Đề</h2>
+    </div>
+    <div class="divider"></div>
+
+    <!-- Flow -->
+    <div class="data-flow">
+      <div class="data-box">
+        <div class="data-box-title">Data Sources</div>
+        <div class="data-item"><span class="data-dot dot-red"></span>Meta Ads Manager (Ad Set level)</div>
+        <div class="data-item"><span class="data-dot dot-red"></span>Meta Ads Manager (Ad level)</div>
+        <div class="data-item"><span class="data-dot dot-blue"></span>Google Ads (chưa đầy đủ)</div>
+        <div class="data-item"><span class="data-dot dot-green"></span>Cpanel (UTM tracking)</div>
+        <div class="data-item"><span class="data-dot dot-blue"></span>Candidate Tracker (D365)</div>
+        <div class="data-item"><span class="data-dot dot-blue"></span>Budget Tracker</div>
+      </div>
+      <div class="data-arrow">→<br><span style="font-size:10px;display:block;color:#999;margin-top:4px;">Manual<br>Export/<br>Import</span></div>
+      <div class="data-box">
+        <div class="data-box-title">Processing <span class="manual-badge">Manual</span></div>
+        <div class="data-item"><span class="data-dot dot-red"></span>Paste vào Google Sheet</div>
+        <div class="data-item"><span class="data-dot dot-red"></span>Nhập tay: Team, Location, Angle</div>
+        <div class="data-item"><span class="data-dot dot-red"></span>Kéo Cpanel data → Candidate Tracker</div>
+        <div class="data-item"><span class="data-dot dot-red"></span>Mapping source (UTM > self-report)</div>
+        <div class="data-item"><span class="data-dot dot-red"></span>Tạo Pivot Table thủ công</div>
+      </div>
+      <div class="data-arrow">→<br><span style="font-size:10px;display:block;color:#999;margin-top:4px;">Auto sync<br>(Looker)</span></div>
+      <div class="data-box">
+        <div class="data-box-title">Dashboards (Looker Studio)</div>
+        <div class="data-item"><span class="data-dot dot-blue"></span>Meta Ads Dashboard</div>
+        <div class="data-item"><span class="data-dot dot-blue"></span>Sourcing Dashboard</div>
+        <div class="data-item" style="color:#999;font-style:italic;"><span class="data-dot" style="background:#ccc;"></span>Recruitment Funnel Dashboard <em>(chưa có)</em></div>
+        <div class="data-item" style="color:#999;font-style:italic;"><span class="data-dot" style="background:#ccc;"></span>Google Ads Dashboard <em>(chưa có)</em></div>
+      </div>
+    </div>
+
+    <!-- UTM Source mapping -->
+    <div class="two-col">
+      <div class="box">
+        <div class="box-title">UTM Source Mapping Logic</div>
+        <ul class="check">
+          <li>Nếu ứng viên <strong>có UTM source</strong> → ghi nhận UTM source</li>
+          <li>Nếu <strong>không có UTM</strong> → ghi nhận source ứng viên tự điền trong application form</li>
+          <li>Chuẩn hóa Blend Source → Source Details → Source Category → Final Source Group</li>
+        </ul>
+        <div class="callout red" style="margin-top:12px; padding:10px 14px; font-size:12.5px;">
+          <strong>UTM miss rate cao:</strong> ứng viên apply qua nhiều path (click link → đổi thiết bị, copy link thiếu UTM, apply direct…) → undercount CV từ paid channels.
+        </div>
+      </div>
+      <div class="box">
+        <div class="box-title">UTM Naming Convention (hiện tại)</div>
+        <div style="background:#F5F5F5; border-radius:4px; padding:10px 14px; font-family:'IBM Plex Mono',monospace; font-size:11.5px; line-height:1.8; margin-bottom:10px;">
+          HRT | TA | USP BENEFIT | T2 | 1TR | Long Thành
+        </div>
+        <ul class="check" style="font-size:12.5px;">
+          <li>Encode: Team | Role | Angle | Term | Salary | Location</li>
+          <li>Nhưng parsing thủ công → error-prone</li>
+          <li>Cần Digital validate naming convention có auto-parse được không</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Measurement funnel -->
+    <div style="margin-top:28px;">
+      <p style="font-size:13px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--gray-text); margin-bottom:14px;">Metrics Funnel Hiện Tại</p>
+      <div class="metrics-flow">
+        <div class="metric-row">
+          <div class="metric-label">Awareness<br>/Traffic</div>
+          <div class="metric-kpis">
+            <span class="kpi-chip">Impressions</span>
+            <span class="kpi-chip">Reach</span>
+            <span class="kpi-chip">Link Clicks</span>
+            <span class="kpi-chip">CTR</span>
+            <span class="kpi-chip">CPC</span>
+            <span class="kpi-chip">CPM</span>
+            <span class="kpi-chip">Frequency</span>
+          </div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-label l2">Lead / CV</div>
+          <div class="metric-kpis">
+            <span class="kpi-chip">Leads</span>
+            <span class="kpi-chip">CVs</span>
+            <span class="kpi-chip">CPL</span>
+            <span class="kpi-chip">Cost/CV</span>
+            <span class="kpi-chip">Lead→CV rate</span>
+          </div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-label l3">Quality</div>
+          <div class="metric-kpis">
+            <span class="kpi-chip">QCV</span>
+            <span class="kpi-chip">CV→QCV rate</span>
+            <span class="kpi-chip">Cost/QCV</span>
+          </div>
+        </div>
+        <div class="metric-row">
+          <div class="metric-label l4">Recruitment<br>Outcome</div>
+          <div class="metric-kpis">
+            <span class="kpi-chip">Interviews</span>
+            <span class="kpi-chip">New Hires</span>
+            <span class="kpi-chip">Cost/Interview</span>
+            <span class="kpi-chip">Cost/New Hire</span>
+          </div>
+        </div>
+      </div>
+      <div class="q-note">❓ Các metrics này có đủ để ra quyết định đáng tin cậy chưa? Leading indicator nào tốt nhất để optimize trong-tháng? Frequency threshold cụ thể để tắt ad set là bao nhiêu?</div>
+    </div>
+
+    <!-- Frequency case -->
+    <div style="margin-top:28px;">
+      <p style="font-size:14px; font-weight:800; margin-bottom:6px;">Ví dụ thực tế: Frequency → CPL logic</p>
+      <p style="font-size:13px; color:#555; margin-bottom:14px; line-height:1.6;">HRT đã xây action logic dựa vào frequency, nhưng cần Digital validate threshold có đúng không.</p>
+      <div class="freq-grid">
+        <div class="freq-card">
+          <div class="freq-head">EX · Lead Ads · Asia &amp; HCM</div>
+          <table class="freq-table">
+            <tr><th>Location</th><th>Frequency</th><th>Leads</th><th>CPL</th></tr>
+            <tr><td>Asia</td><td>2.0–3.0</td><td>404</td><td>66,290</td></tr>
+            <tr class="winner"><td>Asia</td><td>3.0–4.0</td><td>3,051</td><td>47,209 ✓</td></tr>
+            <tr><td>Asia</td><td>4.0–5.0</td><td>3,320</td><td>54,956</td></tr>
+            <tr class="winner"><td>HCM</td><td>4.0–5.0</td><td>215</td><td>16,709 ✓</td></tr>
+            <tr class="warn-row"><td>HCM</td><td>5.0–6.0</td><td>345</td><td>42,746 ↑</td></tr>
+          </table>
+        </div>
+        <div class="freq-card">
+          <div class="freq-head">TA · Lead Ads · Quảng Ngãi (bất thường)</div>
+          <table class="freq-table">
+            <tr><th>Location</th><th>Frequency</th><th>Leads</th><th>CPL</th></tr>
+            <tr class="warn-row"><td>Quảng Ngãi</td><td>3.0–4.0</td><td>1</td><td>159,785</td></tr>
+            <tr><td>Quảng Ngãi</td><td>5.0–6.0</td><td>27</td><td>87,963</td></tr>
+            <tr class="warn-row"><td>Quảng Ngãi</td><td>6.0–7.0</td><td>37</td><td>155,425</td></tr>
+            <tr class="warn-row"><td>Quảng Ngãi</td><td>8.0–9.0</td><td>42</td><td>155,546</td></tr>
+            <tr><td>HCM</td><td>2.0–3.0</td><td>861</td><td>7,716</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="callout red" style="margin-top:12px;">
+        <strong>Nhận định của HRT:</strong> Quảng Ngãi có CPL cao bất thường và không giảm dù frequency thay đổi → audience có thể đã bão hoà. Lead Ads không phải kênh phù hợp ở đây. <strong>Câu hỏi cho Digital:</strong> Kết luận này có đúng không? Nên chuyển sang kênh nào?
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 04 CASE STUDY -->
+  <div class="section" id="casestudy">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Case Study — Attribution Mismatch Dẫn Đến Ra Quyết Định Sai</h2>
+    </div>
+    <div class="divider"></div>
+    <p style="font-size:13.5px; color:#444; margin-bottom:20px; line-height:1.7;">Đây là case thực tế quan trọng nhất HRT muốn Digital MKT cùng validate: <strong>khi nào nên tin UTM source, khi nào không?</strong></p>
+    <p style="font-size:12px; color:#888; margin-bottom:12px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase;">EX Team · Sept 2025 – Apr 2026</p>
+    <div style="overflow-x:auto;">
+    <table class="case-table">
+      <tr>
+        <th>Source</th>
+        <th>CV</th><th>QCV</th><th>New Hire</th><th>Spend (VND)</th><th>Cost/CV</th><th>Cost/QCV</th><th>Cost/New Hire</th>
+      </tr>
+      <tr><td>Total Digital Ads</td><td>6,937</td><td>1,175</td><td>44</td><td>311,319,833</td><td>44,878</td><td>264,953</td><td>7,075,451</td></tr>
+      <tr class="highlight"><td>↳ Meta Form (UTM only)</td><td>4,057</td><td>687</td><td>6</td><td>95,338,419</td><td>23,500</td><td>138,775</td><td><strong>15,889,737</strong></td></tr>
+      <tr class="highlight"><td>↳ Google Pmax (UTM only)</td><td>58</td><td>13</td><td>1</td><td>132,279,536</td><td>2,280,682</td><td>10,175,349</td><td><strong>132,279,536</strong></td></tr>
+      <tr><td>Meta Organic</td><td>315</td><td>52</td><td>3</td><td>—</td><td>0</td><td>0</td><td>0</td></tr>
+      <tr><td>Google Organic</td><td>2,435</td><td>407</td><td>34</td><td>—</td><td>0</td><td>0</td><td>0</td></tr>
+      <tr class="good"><td>Meta Ads (Blend: Ads+Organic)</td><td>4,414</td><td>746</td><td>9</td><td>118,025,568</td><td>26,739</td><td>158,211</td><td>~13,000,000</td></tr>
+      <tr class="good"><td>Google Ads (Blend: Ads+Organic)</td><td>2,523</td><td>429</td><td>35</td><td>193,294,265</td><td>76,613</td><td>450,569</td><td>~5,500,000</td></tr>
+    </table>
+    </div>
+    <div class="finding-grid">
+      <div class="finding warn">
+        <div class="finding-title">⚠ Scenario 1: Chỉ tính theo UTM Source</div>
+        Cost/New Hire của Meta Form = <strong>15.8M</strong> và Google Pmax = <strong>132M</strong> → Nghe phi lý → Ra quyết định ngừng chạy ads.<br><br>
+        <strong>Lý do sai:</strong> UTM miss nhiều vì ứng viên apply qua nhiều path. CV từ Organic tăng song hành với ads nhưng không được gán vào UTM source của paid ads.
+      </div>
+      <div class="finding good">
+        <div class="finding-title">✓ Scenario 2: Blend Source (Ads + Organic cùng kênh)</div>
+        Cost/New Hire Meta Ads ~ <strong>13M</strong> · Google Ads ~ <strong>5.5M</strong> · Toàn kênh Digital ~ <strong>7M</strong>.<br><br>
+        <strong>Logic:</strong> Khi chạy paid ads, Organic cùng kênh cũng tăng. Tách riêng UTM sẽ undercount real impact của ads → nên tính Blend Source mới phản ánh đúng ROI.
+      </div>
+    </div>
+    <div class="callout" style="margin-top:16px;">
+      <strong>Câu hỏi cần Digital xác nhận:</strong> Blend Source logic của HRT có đúng với best practice attribution không? Có mô hình attribution nào chính xác hơn không (VD: data-driven attribution, linear, time-decay)?
+    </div>
+  </div>
+
+  <!-- SECTION 05 CHALLENGES -->
+  <div class="section" id="challenges">
+    <div class="section-header">
+      <span class="section-num blue">05</span>
+      <h2 class="section-title">Challenges — 4 Pain Points Cốt Lõi</h2>
+    </div>
+    <div class="divider"></div>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-num">PAIN 01</div>
+        <div class="pain-title">Duplicated Planning Effort</div>
+        <div class="pain-desc">Recruitment teams tự plan budget/ad set/creative → EB review và finalize lại toàn bộ trước khi gửi Digital. Mỗi team format khác nhau → EB mất thời gian consolidate mỗi tháng mà không có standard brief template.</div>
+        <div class="pain-impact">→ Chậm lead time, dễ sai format, EB làm thay việc coordination</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">PAIN 02</div>
+        <div class="pain-title">Manual Data Collection End-to-End</div>
+        <div class="pain-desc">Mỗi tháng: export Ads Manager ×2 + export Cpanel + nhập tay Team/Location/Angle + kéo data sang Candidate Tracker + mapping source. Không có auto-sync nào giữa Ads Manager ↔ Cpanel ↔ Looker Studio. Sai ở bước nào là dashboard sai theo.</div>
+        <div class="pain-impact">→ Tốn 2–3 ngày/tháng chỉ để collect data, error rate cao</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">PAIN 03</div>
+        <div class="pain-title">No Connected Reporting View</div>
+        <div class="pain-desc">Chưa có dashboard nối ads performance (impression → click → lead) với recruitment funnel (CV → QCV → interview → hire) theo đúng cost logic. Looker Studio hiện tại chỉ có từng phần riêng lẻ, không end-to-end.</div>
+        <div class="pain-impact">→ Không thể nhìn thấy full-funnel ROI của ads một cách tức thì</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-num">PAIN 04</div>
+        <div class="pain-title">Limited Digital Performance Expertise</div>
+        <div class="pain-desc">HRT đọc được sourcing outcome (CV/QCV/hire) nhưng thiếu expertise để validate: metric nào đáng tin, khi nào tắt ad set, frequency threshold bao nhiêu, khi nào test creative mới, attribution logic có đúng không.</div>
+        <div class="pain-impact">→ Ra quyết định theo cảm tính hoặc chờ Digital, chậm tối ưu</div>
+      </div>
+    </div>
+
+    <!-- Zapier gap -->
+    <div class="callout red" style="margin-top:20px;">
+      <strong>Gap cụ thể cần Digital hướng dẫn:</strong> Hiện tại Lead Form → Cpanel qua ZAP (source ghi nhận là "ZAP", không phân biệt được campaign). HRT cần Zapier flow để: Lead Form → Application Form trên website → push về D365 với đầy đủ UTM data. Cần Digital setup step-by-step.
+    </div>
+  </div>
+
+  <!-- SECTION 06 QUESTIONS -->
+  <div class="section" id="questions">
+    <div class="section-header">
+      <span class="section-num black">06</span>
+      <h2 class="section-title">Key Questions — Cần Digital MKT Tư Vấn</h2>
+    </div>
+    <div class="divider"></div>
+
+    <div class="q-section">
+      <div class="q-category">Q1 · Data Tracking & Automation</div>
+      <ul class="q-list">
+        <li class="q-item" data-q="Q1.1">UTM setup hiện tại <span class="mono">(utm_source / utm_medium / utm_campaign / utm_content / utm_term)</span> có đang capture đủ dimension để phân tích performance không? Field nào nên thêm hoặc bỏ?</li>
+        <li class="q-item" data-q="Q1.2">Có cách nào <em>auto-sync</em> data từ Meta Ads Manager + Google Ads vào Looker Studio mà không cần export/import tay mỗi tháng không? (Supermetrics, native connector, hay cách khác?)</li>
+        <li class="q-item" data-q="Q1.3">Zapier flow: <strong>Lead Form → Application Form trên website → D365</strong> nên setup thế nào? HRT cần Digital hướng dẫn step-by-step.</li>
+        <li class="q-item" data-q="Q1.4">Source mapping rule (UTM > self-report) của HRT có phù hợp với best practice không? Attribution model nào phù hợp hơn cho recruitment ads (last-click, data-driven, linear...)?</li>
+        <li class="q-item" data-q="Q1.5">Naming convention <span class="mono">HRT | TA | USP BENEFIT | T2 | 1TR | Long Thành</span> có chuẩn không? Cần cải thiện gì để auto-parse Team/Location/Creative Angle mà không phải nhập tay?</li>
+      </ul>
+    </div>
+
+    <div class="q-section">
+      <div class="q-category">Q2 · Collaboration Workflow</div>
+      <ul class="q-list">
+        <li class="q-item" data-q="Q2.1">Brief/order ads cần có những field bắt buộc nào để Digital không phải hỏi lại? HRT muốn standardize brief template với Digital.</li>
+        <li class="q-item" data-q="Q2.2">Quy trình hiện tại (EB làm trung gian giữa Recruitment và Digital) có tối ưu không? Hay nên có điểm tiếp xúc trực tiếp nào giữa một số Recruitment Teams và Digital?</li>
+        <li class="q-item" data-q="Q2.3">Nên review performance theo chu kỳ nào: tháng / campaign / recruitment cycle? Format report nào Digital có thể cung cấp định kỳ cho HRT?</li>
+        <li class="q-item" data-q="Q2.4">Khi nào Digital nên <em>chủ động flag</em> HRT để điều chỉnh campaign giữa tháng? Trigger conditions cụ thể: CPL tăng X%, frequency vượt Y, budget spent > Z%?</li>
+      </ul>
+    </div>
+
+    <div class="q-section">
+      <div class="q-category">Q3 · Metrics & Interpretation</div>
+      <ul class="q-list">
+        <li class="q-item" data-q="Q3.1">Leading indicator tốt nhất cho recruitment ads là gì: CPL, Cost/CV, Cost/QCV hay Cost/Hire? Nên ưu tiên metric nào để ra quyết định ngân sách trong-tháng?</li>
+        <li class="q-item" data-q="Q3.2">Blend Source logic (Ads + Organic cùng kênh) để tính cost/hire như HRT đang làm có đúng không? Có attribution model nào chính xác hơn không?</li>
+        <li class="q-item" data-q="Q3.3">Khi nào nên tắt ad set: dựa vào CPM, CTR, CPL hay frequency? <em>Threshold cụ thể là bao nhiêu?</em> Và khi nào nên test creative mới thay vì tắt?</li>
+        <li class="q-item" data-q="Q3.4">Awareness campaign (không tạo lead trực tiếp) nên đo bằng chỉ số nào để biết có impact lên organic CV không? Reach/Impression có đủ không?</li>
+        <li class="q-item" data-q="Q3.5">Digital MKT khuyến nghị minimum budget 200K/ngày/ad set. HRT đang chạy 100K/ngày vẫn ra lead. <em>100K/ngày có thể dùng làm minimum không, hay cần nâng lên?</em> Trade-off là gì?</li>
+      </ul>
+    </div>
+
+    <div class="q-section">
+      <div class="q-category">Q4 · SEO Tracking & Tools</div>
+      <ul class="q-list">
+        <li class="q-item" data-q="Q4.1">Website tuyển dụng nên track SEO bằng chỉ số nào: organic sessions, keyword ranking, hay application-from-organic? Cái nào phản ánh đúng recruitment outcome hơn?</li>
+        <li class="q-item" data-q="Q4.2">Tools miễn phí (GSC, GA4) vs trả phí (Semrush, Ahrefs): HRT nên dùng gì ở giai đoạn hiện tại? ROI so với recruitment SEO goal?</li>
+        <li class="q-item" data-q="Q4.3">Cần setup gì trong GA4 để track đúng conversion: <span class="mono">organic search → application form submitted</span>? HRT hiện chưa có GA4 conversion tracking cho recruitment funnel.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION 07 DASHBOARD -->
+  <div class="section" id="dashboard">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Dashboard Expectation — Connected View Từ Ad Đến Hire</h2>
+    </div>
+    <div class="divider"></div>
+    <p style="font-size:13.5px; color:#444; margin-bottom:20px; line-height:1.7;">HRT cần một reporting view duy nhất nối được ads performance với recruitment outcome. Dưới đây là scope và dimension mong đợi để Digital MKT tư vấn về feasibility và implementation.</p>
+
+    <!-- Funnel -->
+    <div class="dash-funnel" style="margin-bottom:20px;">
+      <div class="funnel-label">Full-Funnel View cần có</div>
+      <div class="funnel-steps">
+        <span class="funnel-step">Impression</span><span class="funnel-sep">→</span>
+        <span class="funnel-step">Click</span><span class="funnel-sep">→</span>
+        <span class="funnel-step">Lead</span><span class="funnel-sep">→</span>
+        <span class="funnel-step">CV</span><span class="funnel-sep">→</span>
+        <span class="funnel-step">QCV</span><span class="funnel-sep">→</span>
+        <span class="funnel-step">Interview</span><span class="funnel-sep">→</span>
+        <span class="funnel-step">New Hire</span>
+      </div>
+      <div class="funnel-steps" style="margin-top:10px;">
+        <span class="funnel-step cost">Spend</span><span class="funnel-sep">→</span>
+        <span class="funnel-step cost">CPL</span><span class="funnel-sep">→</span>
+        <span class="funnel-step cost">Cost/CV</span><span class="funnel-sep">→</span>
+        <span class="funnel-step cost">Cost/QCV</span><span class="funnel-sep">→</span>
+        <span class="funnel-step cost">Cost/Interview</span><span class="funnel-sep">→</span>
+        <span class="funnel-step cost">Cost/New Hire</span>
+      </div>
+    </div>
+
+    <!-- Dashboard cards -->
+    <div class="dash-grid">
+      <div class="dash-card">
+        <div class="dash-card-head">01 · Meta / Facebook Ads</div>
+        <div class="dash-card-body">Performance by campaign, ad set, ad creative, angle, format, objective. Frequency analysis. Creative fatigue detection.</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-head">02 · Google Ads</div>
+        <div class="dash-card-body">Pmax vs Search breakdown. Keyword-level performance. Cost/CV, Cost/QCV connected to recruitment outcome.</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-head">03 · Website / GA4</div>
+        <div class="dash-card-body">Organic sessions by landing page. Conversion tracking: organic search → form submitted. Source attribution.</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-head">04 · SEO</div>
+        <div class="dash-card-body">Keyword rankings cho target JDs. Organic CV contribution. Visibility trend theo location/role.</div>
+      </div>
+      <div class="dash-card">
+        <div class="dash-card-head">05 · Sourcing & Recruitment Outcome</div>
+        <div class="dash-card-body">CV → QCV → Interview → Hire by Team, Channel, Location. Cost comparison across all sourcing channels.</div>
+      </div>
+      <div class="dash-card" style="border-color:var(--red);">
+        <div class="dash-card-head" style="background:var(--red);">★ Priority: Connected View</div>
+        <div class="dash-card-body">Ads performance nối trực tiếp với recruitment funnel outcome, cùng cost logic. By Team (EX/VN/TA) × Channel × Location × Creative Angle.</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Dimension cần filter được trong tất cả dashboards:</strong>
+      <span class="tag-pill">By Team: EX / VN / TA</span>
+      <span class="tag-pill">By Channel: Meta / Google / SEO</span>
+      <span class="tag-pill">By Location / Campus</span>
+      <span class="tag-pill">By Campaign</span>
+      <span class="tag-pill">By Ad Set</span>
+      <span class="tag-pill">By Creative Angle</span>
+      <span class="tag-pill">By Format</span>
+      <span class="tag-pill">By Objective</span>
+    </div>
+  </div>
+
+</div><!-- end .page -->
+
+<div class="footer">
+  <strong>VUS · HRT Team</strong> &nbsp;·&nbsp; Pre-Meeting Brief for Digital MKT &nbsp;·&nbsp; 22/06/2026 &nbsp;·&nbsp; Confidential
+</div>
+
+</body>
+</html>
